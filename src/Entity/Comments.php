@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CommentsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\Ignore;
 
 #[ORM\Entity(repositoryClass: CommentsRepository::class)]
@@ -16,12 +17,15 @@ class Comments
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
+    #[Groups(['detail'])]
     private ?User $author = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups(['detail'])]
     private ?string $message = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Groups(['detail'])]
     private ?\DateTimeInterface $createdDate = null;
 
     #[ORM\ManyToOne(inversedBy: 'comments')]

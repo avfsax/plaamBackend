@@ -14,7 +14,7 @@ class PostsController extends AbstractController
 {
 
     #[Route('/list', name: 'api_posts_list')]
-    public function listNews(ManagerRegistry $doctrine): JsonResponse
+    public function listPosts(ManagerRegistry $doctrine): JsonResponse
     {
 
         $posts = $doctrine->getRepository(Posts::class)->findAll();
@@ -29,7 +29,7 @@ class PostsController extends AbstractController
     }
 
     #[Route('/{id}', name: 'api_post_one')]
-    public function oneNews(Posts $post, ManagerRegistry $doctrine): JsonResponse
+    public function onePost(Posts $post, ManagerRegistry $doctrine): JsonResponse
     {
         $context = (new ObjectNormalizerContextBuilder())
             ->withGroups('detail')

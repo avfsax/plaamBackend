@@ -40,6 +40,7 @@ class Posts
     private ?User $author = null;
 
     #[ORM\OneToMany(mappedBy: 'posts', targetEntity: Comments::class, orphanRemoval: true)]
+    #[Groups(['detail'])]
     private Collection $comments;
 
     public function __construct()
