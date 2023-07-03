@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/api/news', name: 'app_i_place')]
+#[Route('/api/news', name: 'app_news')]
 class NewsController extends AbstractController
 {
     #[Route('/list', name: 'api_news_list')]

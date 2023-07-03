@@ -22,7 +22,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 )]
 class CreateNewsCommand extends Command
 {
-    protected static $defaultDescription = 'Creates a new user.';
+    protected static $defaultDescription = 'Creates a new news.';
 
     private $entityManager;
 
@@ -65,7 +65,7 @@ class CreateNewsCommand extends Command
         $output->writeln('Image URL: '.$imgUrl);
 
         $news = new News();
-        $news->setTitle($title);;
+        $news->setTitle($title);
         $news->setImgUrl($imgUrl);
         $news->setText($this->getRandomParagraph().$this->getRandomParagraph().$this->getRandomParagraph().$this->getRandomParagraph());
 
